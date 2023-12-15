@@ -30,61 +30,34 @@
 
 </head>
 <style>
-    .font-title-web{
-        display: block;
-        margin-left: auto;
-        margin-right: auto;
-        margin-top: 40%;
-        border: 2px;
-        padding: 10px;
-        font-size: 18px;
-        text-align: center;
-    }
-    .ibox-login{
-        display: block;
-        margin-left: auto;
-        margin-right: auto;
-    }
-    .ibox-login-img{
-        display: block;
-        margin-left: auto;
-        margin-right: auto;
-        width: 250px;
-        height: 250px;
-    }
-    .font-title-login{
-        margin-top:100px;
-        /* margin-bottom:20px; */
-        font-size: 37px;
-        font-weight: 900;
-    }
+
 </style>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
 
 <body style="background-color: #fff;">
-    <div class="container">
-        <div class="col-lg-12 text-center font-title-login animated bounceInRight">
+    <div class="container animated bounceInRight"  style="margin-top: 150px;">
+        <div class="col-md-3 col-md-offset-4 text-center">
             <div style="margin:auto;" class="ibox-title">
             <span>จองห้องเรียนผ่านเว็บแอพพลิเคชั่น</span>
             </div>
         </div>
-    <div class="ibox-login">
-        <div class="col-md-2">
-            <div class="form-groun">
-                <label for="">username</label>
-                <input type="text" id="username" class="form-control">
-            </div>
-            <div class="form-groun">
-                <label for="">password</label>
-                <input type="password" id="password" class="form-control">
-            </div>
-            <div class="form-groun" style="margin-top: 20px;">
-                <button class="btn btn-info" type="submit" id="btn_login" onclick="btnLogin()">เข้าสู่ระบบ</button>
+        <div class="row">
+            <div class="col-md-3 col-md-offset-4">
+                <div class="form-groun">
+                    <label for="">username</label>
+                    <input type="text" id="username" class="form-control">
+                </div>
+                <div class="form-groun">
+                    <label for="">password</label>
+                    <input type="password" id="password" class="form-control">
+                </div>
+                <div class="form-groun" style="margin-top: 20px;">
+                    <button class="btn btn-info" type="submit" id="btn_login" onclick="btnLogin()">เข้าสู่ระบบ</button>
+                </div>
             </div>
         </div>
     </div>
-</div>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
     
     <!-- Mainly scripts -->

@@ -4,7 +4,7 @@
 
 	// include('headen.php');
 	session_start();
-	require_once('connect.php');
+	require_once('process/connect.php');
 
 	$username = mysqli_real_escape_string($conn,$_POST['username']);
 	$password = mysqli_real_escape_string($conn,$_POST['password']);
