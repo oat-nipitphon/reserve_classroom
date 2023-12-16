@@ -4,7 +4,10 @@
 *  version 2.7
 *
 -->
+<?php
 
+// require_once("process/connect.php");
+?>
 <!DOCTYPE html>
 <html>
 

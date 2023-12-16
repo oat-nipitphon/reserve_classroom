@@ -72,7 +72,7 @@
 
             $.ajax({
                 type: 'POST',
-                url: 'process/config-login.php',
+                url: 'config-login.php',
                 data: {
                     username: username,
                     password: password,

@@ -1,9 +1,8 @@
 <?php
   session_start();
   include('layouts/headen.php');
-  require_once ("connect.php");
-
-  echo $_SESSION['id'];
+  require_once("process/connect.php");
+  // echo $_SESSION['id'];
 
   if(!isset($_SESSION['id'])){
     echo "Please Login!";
@@ -15,7 +14,7 @@
 <div class="row">
     <div class="row ibox-content animated fadeInDown">
         <div class="col-md text-left">
-            <button class="btn btn-success" type="button" onclick="location.href='register.php'">
+            <button class="btn btn-success" type="button" onclick="location.href='view/user/register.php'">
                 <i class="fa fa-upload"></i><span class="bold"> เพิ่มข้อมูล</span>
             </button>
         </div>

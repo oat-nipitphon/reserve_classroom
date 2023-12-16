@@ -1,7 +1,7 @@
 <?php
   session_start();
   include('layouts/headen.php');
-  require_once ("process/connect.php");
+  require_once("connect.php");
 
   // echo $_SESSION['id'];
 
@@ -55,7 +55,7 @@
           ?>
           <div class="col-lg-4">
             <div class="ibox-content text-center">
-                <a href="view/user/report-user.php">บริหารจัดการผู้ใช้</a>
+                <a href="view/user/index.php">บริหารจัดการผู้ใช้</a>
             </div>
           </div>
           <div class="col-lg-4">
