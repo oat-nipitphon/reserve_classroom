@@ -45,19 +45,19 @@
             </div>
         </div>
         <div class="ibox-content">
-                <div class="col-md-6 col-md-offset-3">
-                    <div class="form-groun">
-                        <label for="">username</label>
-                        <input type="text" id="username" name="username "class="form-control">
-                    </div>
-                    <div class="form-groun">
-                        <label for="">password</label>
-                        <input type="password" id="password" name="password" class="form-control">
-                    </div>
-                    <div class="form-groun" style="margin-top: 20px;">
-                        <button class="btn btn-info" type="submit" id="btn_login" onclick="btnLogin()">เข้าสู่ระบบ</button>
-                    </div>
+            <div class="col-md-6 col-md-offset-3">
+                <div class="form-groun">
+                    <label for="">username</label>
+                    <input type="text" id="username" name="username "class="form-control">
                 </div>
+                <div class="form-groun">
+                    <label for="">password</label>
+                    <input type="password" id="password" name="password" class="form-control">
+                </div>
+                <div class="form-groun" style="margin-top: 20px;">
+                    <button class="btn btn-info" type="submit" id="btn_login" onclick="btnLogin()">เข้าสู่ระบบ</button>
+                </div>
+            </div>
         </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
