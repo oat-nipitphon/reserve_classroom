@@ -37,25 +37,27 @@
 
 <body style="background-color: #fff;">
     <div class="container animated bounceInRight"  style="margin-top: 150px;">
-        <div class="col-md-3 col-md-offset-4 text-center">
-            <div style="margin:auto;" class="ibox-title">
-            <span>จองห้องเรียนผ่านเว็บแอพพลิเคชั่น</span>
+        <div class="ibox-title">
+            <div class="col-md-6 text-center col-md-offset-3">
+                <div style="margin:auto;">
+                <span>จองห้องเรียนผ่านเว็บแอพพลิเคชั่น</span>
+                </div>
             </div>
         </div>
-        <div class="row">
-            <div class="col-md-3 col-md-offset-4">
-                <div class="form-groun">
-                    <label for="">username</label>
-                    <input type="text" id="username" class="form-control">
+        <div class="ibox-content">
+                <div class="col-md-6 col-md-offset-3">
+                    <div class="form-groun">
+                        <label for="">username</label>
+                        <input type="text" id="username" name="username "class="form-control">
+                    </div>
+                    <div class="form-groun">
+                        <label for="">password</label>
+                        <input type="password" id="password" name="password" class="form-control">
+                    </div>
+                    <div class="form-groun" style="margin-top: 20px;">
+                        <button class="btn btn-info" type="submit" id="btn_login" onclick="btnLogin()">เข้าสู่ระบบ</button>
+                    </div>
                 </div>
-                <div class="form-groun">
-                    <label for="">password</label>
-                    <input type="password" id="password" class="form-control">
-                </div>
-                <div class="form-groun" style="margin-top: 20px;">
-                    <button class="btn btn-info" type="submit" id="btn_login" onclick="btnLogin()">เข้าสู่ระบบ</button>
-                </div>
-            </div>
         </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
@@ -66,12 +68,14 @@
     <script type="text/javascript">
 
         function btnLogin(button){
-            var username = document.getElementById('username').value;
-            var password = document.getElementById('password').value;
+            // var username = document.getElementById('username').value;
+            // var password = document.getElementById('password').value;
+            var username = $('#username').val();
+            var password = $('#password').val();
             console.log(username,password);
 
             $.ajax({
-                type: 'POST',
+                type: 'post',
                 url: 'config-login.php',
                 data: {
                     username: username,
@@ -86,7 +90,7 @@
                     });
                     setTimeout(function(){
                         swal.close();
-                        location.replace('main.php');
+                        location.replace('dashboard.php');
                     },1000);
                     
                 },

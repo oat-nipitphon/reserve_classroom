@@ -8,8 +8,12 @@
                     <img alt="image" class="img-circle" src="img/profile_small.jpg">
                             </span>
                     <a data-toggle="dropdown" class="dropdown-toggle" href="#">
-                        <span class="clear"> <span class="block m-t-xs"> <strong class="font-bold">David Williams</strong>
-                            </span> <span class="text-muted text-xs block">Art Director <b class="caret"></b></span> </span> </a>
+                        <span class="clear"> 
+                            <span class="block m-t-xs"> 
+                                <strong class="font-bold">David Williams</strong>
+                            </span> 
+                            <span class="text-muted text-xs block">Art Director <b class="caret"></b></span> 
+                        </span> </a>
                     <ul class="dropdown-menu animated fadeInRight m-t-xs">
                         <li><a href="profile.html">โปรไฟล์</a></li>
                         <li><a href="contacts.html">แก้ไขข้อมูล</a></li>
@@ -17,8 +21,11 @@
                     </ul>
                 </div>
             </li>
+            <li class="special_link">
+                <a href="dashboard.php"><i class="fa fa-home"></i> <span class="nav-label">หน้าแรก</span></a>
+            </li>
             <li class="active">
-                <a href="main.php"><i class="fa fa-th-large"></i> <span class="nav-label">หน้าแรก</span> <span class="fa arrow"></span></a>
+                <a href="#"><i class="fa fa-th-large"></i> <span class="nav-label">เมนู</span> <span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level collapse in">
                     <li class="active"><a href="report-user.php">บริหารจัดการผู้ใช้</a></li>
                     <li><a href="building-control.php">บริหารจัดการอาคารเรียน</a></li>
@@ -26,22 +33,6 @@
                     <li><a href="report-room.php">บริหารจัดการจองคืน</a></li>
                     <li><a href="report-room.php">ระบบรายงานการจอง-คืน</a></li>
                     <li><a href="comment-rooms.php">คอมเม้น</a></li>
-                </ul>
-            </li>
-            <li>
-                <a href="layouts.html"><i class="fa fa-diamond"></i> <span class="nav-label">Layouts</span></a>
-            </li>
-            <li>
-                <a href="#"><i class="fa fa-bar-chart-o"></i> <span class="nav-label">Graphs</span><span class="fa arrow"></span></a>
-                <ul class="nav nav-second-level collapse">
-                    <li><a href="graph_flot.html">Flot Charts</a></li>
-                    <li><a href="graph_morris.html">Morris.js Charts</a></li>
-                    <li><a href="graph_rickshaw.html">Rickshaw Charts</a></li>
-                    <li><a href="graph_chartjs.html">Chart.js</a></li>
-                    <li><a href="graph_chartist.html">Chartist</a></li>
-                    <li><a href="c3.html">c3 charts</a></li>
-                    <li><a href="graph_peity.html">Peity Charts</a></li>
-                    <li><a href="graph_sparkline.html">Sparkline Charts</a></li>
                 </ul>
             </li>
         </ul>

@@ -1,7 +1,7 @@
 <?php
   session_start();
   include('layouts/headen.php');
-  require_once("process/connect.php");
+  require_once("connect.php");
   // echo $_SESSION['id'];
 
   if(!isset($_SESSION['id'])){

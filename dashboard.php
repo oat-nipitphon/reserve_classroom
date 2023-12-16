@@ -1,16 +1,16 @@
 <?php
-  session_start();
-  include('layouts/headen.php');
-  require_once("connect.php");
+session_start();
+include('connect.php');
+include('layouts/headen.php');
+$id_user = $_SESSION['id'];
+$username = $_SESSION['username'];
+$status_user = $_SESSION['status_user'];
 
-  // echo $_SESSION['id'];
-
-  if(!isset($_SESSION['id'])){
-    echo "Please Login!";
+// Check if the user is logged in
+if (!isset($_SESSION["username"])) {
+    header("Location: index.php");
     exit();
-  }
-    $id_user = $_SESSION['id'];
-    $status_user = $_SESSION['status_user'];
+}
 ?>
 <style>
   .ibox-content-menu{
@@ -55,17 +55,17 @@
           ?>
           <div class="col-lg-4">
             <div class="ibox-content text-center">
-                <a href="view/user/index.php">บริหารจัดการผู้ใช้</a>
+                <a href="report-user.php">บริหารจัดการผู้ใช้</a>
             </div>
           </div>
           <div class="col-lg-4">
               <div class="ibox-content text-center">
-                <a href="view/building/building-control.php">บริหารจัดการอาคารเรียน</a>
+                <a href="building-control.php">บริหารจัดการอาคารเรียน</a>
               </div>
           </div>
           <div class="col-lg-4">
               <div class="ibox-content text-center">
-                <a href="view/room/room-control.php">บริหารจัดการห้องเรียน</a>
+                <a href="room-control.php">บริหารจัดการห้องเรียน</a>
               </div>
           </div>
       </div>
@@ -75,17 +75,17 @@
     <div class="row">
         <div class="col-lg-4">
             <div class="ibox-content text-center">
-               <a href="view/room/report-room.php">บริหารจัดการ จอง - คืน</a>
+               <a href="select-rooms.php">บริหารจัดการ จอง - คืน</a>
             </div>
         </div>
         <div class="col-lg-4">
             <div class="ibox-content text-center">
-               <a href="view/room/-room.php">ระบบรายงานการ จอง - คืน</a>
+               <a href="report-room">ระบบรายงานการ จอง - คืน</a>
             </div>
         </div>
         <div class="col-lg-4">
             <div class="ibox-content text-center">
-               <a href="view/comment/comment-rooms.php">คอมเม้นห้อง</a>
+               <a href="comment-rooms.php">คอมเม้นห้อง</a>
             </div>
         </div>
     </div>

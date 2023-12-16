@@ -1,28 +1,29 @@
 <?php
-//เข้าสู่ระบบสำเร็จเก็บ session เข้าสู่หน้า main
-//เข้าสู่ระบบไม่สำเร็จ ขึ้นแจ้งเตือน กลับหน้าล็อคอิน
-
-	// include('headen.php');
 	session_start();
-	require_once('process/connect.php');
+	include('connect.php');
+	// Check if the form is submitted
+	if ($_SERVER["REQUEST_METHOD"] == "POST") {
+		// Your authentication logic goes here
 
-	$username = mysqli_real_escape_string($conn,$_POST['username']);
-	$password = mysqli_real_escape_string($conn,$_POST['password']);
+		$username = $_POST["username"];
+		$password = $_POST["password"];
+
+		$sql = "SELECT * FROM `table_user` WHERE `username` = '$username' AND `password`= '$password'";
+		echo $sql;
+		$obj = $conn->query($sql);
+		$req = $obj->fetch_assoc();
 	
-	$Sql = "SELECT * FROM `table_user` WHERE `username`='$username' AND `password`='$password'";
-	$obj = $conn->query($Sql);
-	$req = $obj->fetch_assoc();
-
-	if($req){
-		$_SESSION['id'] = $req['id'];
-		$_SESSION['full_name'] = $req['full_name'];
-		$_SESSION['status_user'] = $req['status_user'];
-		
-		header("location:main.php");
-
-	}else{
-		echo "Username and Password Incorrect!!";
+		// Check if the provided credentials are valid
+		if ($req != null) {
+			// Set session variables
+			$_SESSION["id"] = $req['id'];
+			$_SESSION["username"] = $req['username'];
+			$_SESSION["status_user"] = $req['status_user'];
+	
+			// Redirect to a logged-in page
+			header("Location: dashboard.php");
+			exit();
+		} else {
+			$error_message = "Invalid username or password. Please try again.";
+		}
 	}
-
-
-?>
