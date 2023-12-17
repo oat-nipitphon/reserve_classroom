@@ -11,112 +11,55 @@ if (!isset($_SESSION['username'])) {
     header('Location: index.php');
     exit();
 }
-
-$Sql_select_room = 'SELECT * FROM class_room';
-$Result = $conn->query($Sql_select_room);
-
 ?>
 
-<div class="warpper warpper-connect">
-    <div class="row" style="margin-top: 50px;">
-        <?php
-        $sql_rooms = "SELECT * FROM `class_room`";
-        $obj_rooms = $conn->query($sql_rooms);
-        
-        if($obj_rooms != null){
-            while($req_room = $obj_rooms->fetch_assoc()){
-            ?>
-        <div class="col-md-4">
-            <div class="ibox float-e-margins">
-                <div class="ibox-title">
-                    <div class="row">
-                        <div class="col-md-6">
-                            <label for="">
-                                <h5><?php echo $req_room['code_room']; ?></h5>
-                            </label>
-                        </div>
-                        <div class="col-md-6 pull-right text-right ">
-                            <label for="">
-                                <?php
-                                if ($req_room['status_room'] == '0') {
-                                    echo "<span class='label label-primary'>ว่าง</span>";
-                                } elseif ($req_room['status_room'] == '1') {
-                                    echo "<span class='label label-danger'>ไม่ว่าง</span>";
-                                } else {
-                                    echo "<span class='label label-warning'>ไม่พร้อมใช้งาน</span>";
-                                }
-                                ?>
-                            </label>
-                        </div>
-                    </div>
-                </div>
-                <div class="ibox-content">
-                    <div class="row">
-                        <div class="col-md-6 text-center animated bounceInLeft">
-                            <form action="select-room-main.php" method="post">
-                                <input type="hidden" name="code_room" id="code_room" value="<?php echo $req_room['code_room']; ?>">
-                                <button class="btn btn-primary" type="submit" onclick="selectRoomMain()">
-                                    <i class="fa fa-check"></i>จองห้อง
-                                </button>
-                            </form>
-                        </div>
-                        <div class="col-md-6 text-center animated bounceInRight">
-                            <button class="btn btn-success" type="button"><i class="fa fa-upload"></i>
-                                <span class="bold">คืนห้อง</span>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <?php
-            }
-        }
-    ?>
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="row">
+        <input type="hidden" id="id_user" name="id_user" value="<?php echo $_SESSION['id'];?>">
     </div>
+    <div id='calendar'></div>
 </div>
+
+
+<script src="node_modules/@fullcalendar/core"></script>
+<script src="node_modules/@fullcalendar/daygrid"></script>
+<script src="node_modules/fullcalendar/index.global.min.js"></script>
+
+<script src='node_modules/@fullcalendar/core/index.global.min.js'></script>
+<script src='node_modules/@fullcalendar/daygrid/index.global.min.js'></script>
+<script src='node_modules/@fullcalendar/adaptive'></script>
+
 <script src="js/jquery-3.1.1.min.js"></script>
 <script type="text/javascript">
+    document.addEventListener('DOMContentLoaded', function() {
+        var id_user = $('#id_user').val();
+        console.log(id_user);
+        var calendarEl = document.getElementById('calendar');
+        var calendar = new FullCalendar.Calendar(calendarEl, {
+            initialView: 'dayGridMonth',
 
-        // function selectRoomMain(button){
-            
-        //     var id_room = $('#id_room').val();
-        //     console.log(id_room);
+            events: [{
+                    title: 'Event 1',
+                    start: '2023-12-01',
+                    url: 'https://example.com/event1'
 
-        //     $.ajax({
-        //         type: 'POST',
-        //         url: 'select-room-main.php',
-        //         data: {
-        //             id_room: id_room,
-        //         },
-        //         success: function(response){
-        //             console.log("OK");         
-        //             Swal.fire({
-        //                 title: "select-room-main.php",
-        //                 text: "Connect Test",
-        //                 icon: "success"
-        //             });
-        //             setTimeout(function (){
-        //                 swal.close();
-        //                 location.replace('select-room-main.php');
-        //             },1500);
-        //         },
-        //         error: function(error){
-        //             console.log(error);
-        //             Swal.fire({
-        //                 title: "Error Select Room Main",
-        //                 text: "Error Test",
-        //                 icon: "error"
-        //             });
-        //             setTimeout(function (){
-        //                 swal.close();
-        //             },1500);
-        //         }
-        //     });
-        // }
 
+                },
+                {
+                    title: 'Event 2',
+                    start: '2023-12-05',
+                    url: 'https://example.com/event2'
+                }
+            ],
+
+            // eventClick: function(event) {
+            // // Open the URL in the same window/tab
+            // window.location.href = event.url;
+            // }
+        });
+        calendar.render();
+    });
 </script>
-
 <?php
-    include('layouts/footer.php');
+include 'layouts/footer.php';
 ?>

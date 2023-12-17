@@ -1,14 +1,17 @@
 </div>
 </div>
 
+
+
     <!-- Mainly scripts -->
-    <script src="js/plugins/fullcalendar/moment.min.js"></script>
+    <!-- <script src="js/plugins/fullcalendar/moment.min.js"></script> -->
 
     <!-- iCheck -->
-    <script src="js/plugins/iCheck/icheck.min.js"></script>
+    <!-- <script src="js/plugins/iCheck/icheck.min.js"></script> -->
+    <!-- <script src="js/plugins/fullcalendar/fullcalendar.min.js"></script> -->
 
     <!-- Full Calendar -->
-    <script src="js/plugins/fullcalendar/fullcalendar.min.js"></script>
+    <script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.10/index.global.min.js'></script>
 
     <!-- Sweetalert2 -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>

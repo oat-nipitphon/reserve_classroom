@@ -34,7 +34,7 @@
     <link href="css/plugins/iCheck/custom.css" rel="stylesheet">
     <link href="css/plugins/fullcalendar/fullcalendar.css" rel="stylesheet">
     <link href="css/plugins/fullcalendar/fullcalendar.print.css" rel='stylesheet' media='print'>
-
+    
     
 
 </head>
