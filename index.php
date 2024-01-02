@@ -62,21 +62,20 @@
     </div>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
     
+    
     <!-- Mainly scripts -->
     <script src="js/jquery-3.1.1.min.js"></script>
 
     <script type="text/javascript">
 
         function btnLogin(button){
-            // var username = document.getElementById('username').value;
-            // var password = document.getElementById('password').value;
             var username = $('#username').val();
             var password = $('#password').val();
             console.log(username,password);
 
             $.ajax({
                 type: 'post',
-                url: 'config-login.php',
+                url: 'login-config.php',
                 data: {
                     username: username,
                     password: password,
@@ -91,7 +90,7 @@
                     setTimeout(function(){
                         swal.close();
                         location.replace('dashboard.php');
-                    },1000);
+                    },1500);
                     
                 },
                 error: function(error){
@@ -105,21 +104,101 @@
                         swal.close();
                         document.getElementById('username').reset;
                         document.getElementById('password').reset;
-                    },1000);
+                    },1500);
                 }
             });
         }
 
-            //           setTimeout(function(){
-    //           swal.close();
-    //           window.location.reload();
-    //           },2000)
 
-//         Swal.fire({
-//   title: "Good job!",
-//   text: "You clicked the button!",
-//   icon: "success"
-// });
-    </script>
+
+    // $(function(){
+    //     $('.table').dataTable({
+    //         pageLength: 25,
+    //         responsive: true,
+    //     });
+    // });
+
+
+    // function delete_user(id){
+    //     // console.log(id);
+    //     $.ajax({
+    //         type: 'POST',
+    //         url: 'config-delete-user.php',
+    //         data: {id: id},
+    //         success: function(response){
+    //             console.log(response);
+    //         },
+    //         error: function(error) {
+    //             console.log(error);
+    //         }
+    //     });
+    //     window.location.reload();
+    // }
+
+
+    // $('#btnformupdate1').on('click', function () {
+    //     // var divform = $('#formupdate').find('div').find('input');
+    //     var divform = $('#formupdate').find('input');
+    //     var divform1 = $(this).find('#formupdate').val();
+
+
+
+    //     console.log(divform);
+    //     // console.log(divform1);
+        
+    //     console.log('form update user ajax');
+        
+    //     $.ajax({
+    //         type: 'POST',
+    //         url: 'user-config-edit.php',
+    //         data: {divform: divform},
+    //         success: function(response){
+    //             console.log(response);
+    //         },
+    //         error: function(error) {
+    //             console.log(error);
+    //         }
+    //     });
+
+    //     // formUpdateUserAjax()
+
+
+    // });
+
+
+    // function formUpdateUserAjax(divform){
+    //     console.log(divform);
+    //     console.log('form update user ajax');
+    //     $.ajax({
+    //         type: 'POST',
+    //         url: 'user-config-edit.php',
+    //         data: {divform: divform},
+    //         success: function(response){
+    //             console.log(response);
+    //         },
+    //         error: function(error) {
+    //             console.log(error);
+    //         }
+    //     });
+    //     window.location.reload();
+    // }
+
+    // $('#selectProduct').on('click', function () {
+    //     tr = $('#tableGood').find('tbody').find('tr');
+    //     tr.each(function () {
+    //         if ($(this).find('.check-list').prop('checked')) {
+    //             var good_id = $(this).find('.good_id').val();
+    //             var coil_code = $(this).find('.coil_code').val();
+    //             var code = $(this).find('td').eq(0).text();
+    //             var warehouse_good_id = $(this).find('.warehouse_good_id').val();
+    //             var name = $(this).find('td').eq(1).text();
+    //             var amount = $(this).find('td').eq(2).text();
+    //             var unit = $(this).find('td').eq(3).text();
+    //             addTable(good_id,coil_code,code,name,amount,unit,warehouse_good_id);
+    //         }
+    //     });
+    //     $('input[type=checkbox]').prop('checked', false);
+    //     $('#goodModal').modal('hide');
+    // });
 </body>
 </html>

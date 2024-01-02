@@ -16,12 +16,16 @@
         margin-left: 5px;
         size: 13px;
     }
+    .font-table-title{
+        font-size: 12px;
+        text-align: center;
+    }
 </style>
 
 <div class="row">
     <div class="row ibox-content animated fadeInDown">
-        <div class="col-md text-left">
-            <button class="btn btn-success" type="button" onclick="location.href='view/user/register.php'">
+        <div class="col-md text-center" style="margin-top: 20px; margin-bonton: 20px;">
+            <button class="btn btn-success" type="button" onclick="location.href='user-profile-add.php'">
                 <i class="fa fa-upload"></i><span class="bold"> เพิ่มข้อมูล</span>
             </button>
         </div>
@@ -30,7 +34,7 @@
         <div class="table-responsive">
             <table class="table table-striped table-bordered table-hover dataTables-example" width="100%">
                 <thead class="font-table-title">
-                    <td>id</td>
+                    <td>รูป</td>
                         <td>name</td>
                         <td>เลขบัตรประชาชน</td>
                         <td>username</td>
@@ -48,33 +52,42 @@
                         while($Req = $Obj->fetch_assoc()){
                             ?>
                                 <tr>
-                                    <td><?php echo $Req['id']; ?></td>
-                                    <td><?php echo $Req['full_name']; ?></td>
-                                    <td><?php echo $Req['card_number']; ?></td>
+                                    <td>
+                                        <?php
+                                            $imageData = $Req['image_user'];
+                                            $base64Image = base64_encode($imageData);
+                                            $imageSrc = "data:image/jpeg;base64, $base64Image";
+                                            echo $Req['image_user'];
+                                        ?>
+                                        <img src="<?php echo $imageSrc; ?>"  width="170" height="170">
+                                    </td>
+                                    <td width="25%"><?php echo $Req['full_name']; ?></td>
+                                    <td width="25%"><?php echo $Req['card_number']; ?></td>
                                     <td><?php echo $Req['username']; ?></td>
                                     <td><?php echo $Req['password']; ?></td>
                                     <td><?php echo $Req['status_user']; ?></td>
-                                    <td><?php echo $Req['tel']; ?></td>
-                                    <td width="20%">
+                                    <td><?php echo $Req['tel']; echo $Req['image_user']; ?></td>
+                                    <td width="25%">
                                         <div class="col-md-12">
                                             <div class="row">
-                                                <div class="col-md-4">
+                                                <div class="col-md-4 text-center">
                                                     <!-- <button class="dim btn btn-xs btn btn-primary" type="submit" onclick="location.href='profile-user.php?id=<?php echo $Req['id']; ?>'" data-toggle="modal" data-target="#exampleModal">
                                                         <i class="fa fa-user-o"></i><label class="font-btn">view</label>
                                                     </button> -->
-                                                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal5">
-                                                        Large Modal
+                                                    <button type="button" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#myModal5">
+                                                    <i class="fa fa-user"></i> ข้อมูล
                                                     </button>
                                                 </div>
-                                                <div class="col-md-4">
-                                                    <button class="dim btn btn-xs btn btn-warning" type="submit" onclick="location.href='profile-edit-user.php?id=<?php echo $Req['id']; ?>'">
-                                                    <i class="fa fa-paste"></i><label class="font-btn">edit</label>
+                                                <div class="col-md-4 text-center">
+                                                    <button class="btn btn-warning btn-xs" type="button" 
+                                                    onclick="location.href='user-profile-edit.php?id=<?php echo $Req['id']; ?>'">
+                                                    <i class="fa fa-paste"></i> แก้ไข
                                                     </button>
                                                 </div>
-                                                <div class="col-md-4">
+                                                <div class="col-md-4 text-center">
                                                     <input type="hidden" id="fullname" value="<?php echo $Req['full_name']; ?>">
-                                                    <button class="dim btn btn-xs btn btn-danger" type="submit" onclick="remove(<?php echo $Req['id']; ?>)">
-                                                        <i class="fa fa-times"></i><label class="font-btn">del</label>
+                                                    <button class="btn btn-danger btn-xs" type="button" onclick="remove(<?php echo $Req['id']; ?>)">
+                                                        <i class="fa fa-times"></i> ลบ
                                                     </button>
                                                 </div>
                                             </div>
@@ -89,10 +102,13 @@
             </table>
         </div>
         <div class="ibox-content text-right">
-            <button type="submit" onclick="location.href='main.php'" class="btn btn-danger" name="btn_update">กลับ</button>
+            <button type="submit" onclick="location.href='dashboard.php'" class="btn btn-danger" name="btn_update">กลับ</button>
         </div>
     </div>
 </div>
+
+
+<!-- Modal Profile User -->
 <div class="modal inmodal fade" id="myModal5" tabindex="-1" role="dialog"  aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
@@ -120,8 +136,22 @@
 
 
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
-
+<script src="js/jquery-3.1.1.min.js"></script>
+<script src="/js/plugins/dataTables/datatables.min.js"></script>
 <script type="text/javascript">
+
+    $(function(){
+        $('.table').dataTable({
+            pageLength: 3,
+            responsive: true,
+            autoWidth: true,
+            searching: true,
+            "bInfo": false,
+            ordering: true,
+            "bLengthChange": false,
+            processing: true,
+        });
+    });
            
     function remove(id){
     var fullname = document.getElementById('fullname').value; 
@@ -140,7 +170,7 @@
 
             $.ajax({
                     type: "POST",
-                    url: "config-delete-user.php",
+                    url: "user-config-delete.php",
                     data: {
                     id:id,
                     "_token": "{{ csrf_token() }}",
@@ -159,7 +189,7 @@
                     setTimeout(function(){
                     swal.close();
                     window.location.reload();
-                    },2000)
+                    },1500)
 
                     }else{
                     Swal.fire({
@@ -172,7 +202,7 @@
                     setTimeout(function(){
                     swal.close();
                     window.location.reload();
-                    },2000)
+                    },1500)
                     }
 
                 },
@@ -180,54 +210,6 @@
         }
         });
     }
-
-    
-    $(document).ready(function(){
-            $('.dataTables-example').DataTable({
-                pageLength: 25,
-                responsive: true,
-                dom: '<"html5buttons"B>lTfgitp',
-                buttons: [
-                    { extend: 'copy'},
-                    {extend: 'csv'},
-                    {extend: 'excel', title: 'ExampleFile'},
-                    {extend: 'pdf', title: 'ExampleFile'},
-
-                    {extend: 'print',
-                     customize: function (win){
-                            $(win.document.body).addClass('white-bg');
-                            $(win.document.body).css('font-size', '10px');
-
-                            $(win.document.body).find('table')
-                                    .addClass('compact')
-                                    .css('font-size', 'inherit');
-                    }
-                    }
-                ]
-
-            });
-
-        });
-
-  
-
-
-
-    // function delete_user(id){
-    //     // console.log(id);
-    //     $.ajax({
-    //         type: 'POST',
-    //         url: 'config-delete-user.php',
-    //         data: {id: id},
-    //         success: function(response){
-    //             console.log(response);
-    //         },
-    //         error: function(error) {
-    //             console.log(error);
-    //         }
-    //     });
-    //     window.location.reload();
-    // }
 
 
 </script>

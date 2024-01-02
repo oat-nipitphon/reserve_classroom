@@ -1,6 +1,8 @@
 </div>
 </div>
 
+    <script src="js/jquery-3.1.1.min.js"></script>
+
     <!-- Mainly scripts -->
     <script src="js/plugins/fullcalendar/moment.min.js"></script>
 
@@ -151,7 +153,7 @@
         new Chart(ctx4, {type: 'doughnut', data: doughnutData, options:doughnutOptions});
 
     });
-</script> -->
+</script> 
 
 </body>
 </html>
