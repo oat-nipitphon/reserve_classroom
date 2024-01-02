@@ -11,6 +11,13 @@
     $id_user = $_SESSION['id'];
     $status_user = $_SESSION['status_user'];
 ?>
+<style>
+    .font-btn{
+        margin-left: 5px;
+        size: 13px;
+    }
+</style>
+
 <div class="row">
     <div class="row ibox-content animated fadeInDown">
         <div class="col-md text-left">
@@ -48,25 +55,30 @@
                                     <td><?php echo $Req['password']; ?></td>
                                     <td><?php echo $Req['status_user']; ?></td>
                                     <td><?php echo $Req['tel']; ?></td>
-                                    <td width="10%">
-                                    <div class="row text-center">
-                                        <div class="infont col-md-4 col-sm-4">
-                                            <button class="btn-xs btn-rounded btn btn-w-m btn-primary" type="button" onclick="location.href='profile-user.php?id=<?php echo $Req['id']; ?>'" data-toggle="modal" data-target="#exampleModal">
-                                                <i class="fa fa-user-o"></i> ดูโปรไฟล์
-                                            </button>
+                                    <td width="20%">
+                                        <div class="col-md-12">
+                                            <div class="row">
+                                                <div class="col-md-4">
+                                                    <!-- <button class="dim btn btn-xs btn btn-primary" type="submit" onclick="location.href='profile-user.php?id=<?php echo $Req['id']; ?>'" data-toggle="modal" data-target="#exampleModal">
+                                                        <i class="fa fa-user-o"></i><label class="font-btn">view</label>
+                                                    </button> -->
+                                                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal5">
+                                                        Large Modal
+                                                    </button>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <button class="dim btn btn-xs btn btn-warning" type="submit" onclick="location.href='profile-edit-user.php?id=<?php echo $Req['id']; ?>'">
+                                                    <i class="fa fa-paste"></i><label class="font-btn">edit</label>
+                                                    </button>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <input type="hidden" id="fullname" value="<?php echo $Req['full_name']; ?>">
+                                                    <button class="dim btn btn-xs btn btn-danger" type="submit" onclick="remove(<?php echo $Req['id']; ?>)">
+                                                        <i class="fa fa-times"></i><label class="font-btn">del</label>
+                                                    </button>
+                                                </div>
+                                            </div>
                                         </div>
-                                        <div class="infont col-md-4 col-sm-4">
-                                            <button class="btn-xs btn-rounded btn btn-w-m btn-warning" type="button" onclick="location.href='profile-edit-user.php?id=<?php echo $Req['id']; ?>'">
-                                            <i class="fa fa-paste"></i> แก้ไข
-                                            </button>
-                                        </div>
-                                        <div class="infont col-md-4 col-sm-4">
-                                            <input type="hidden" id="fullname" value="<?php echo $Req['full_name']; ?>">
-                                            <button class="btn-xs btn-rounded btn btn-w-m btn-danger" type="button" onclick="remove(<?php echo $Req['id']; ?>)">
-                                                <i class="fa fa-times"></i> ลบ
-                                            </button>
-                                        </div>
-                                    </div>
                                     </td>
                                 </tr>
                             <?php
@@ -78,6 +90,30 @@
         </div>
         <div class="ibox-content text-right">
             <button type="submit" onclick="location.href='main.php'" class="btn btn-danger" name="btn_update">กลับ</button>
+        </div>
+    </div>
+</div>
+<div class="modal inmodal fade" id="myModal5" tabindex="-1" role="dialog"  aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title">Modal title</h4>
+                <small class="font-bold">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</small>
+            </div>
+            <div class="modal-body">
+                <p><strong>Lorem Ipsum is simply dummy</strong> text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown
+                    printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting,
+                    remaining essentially unchanged.</p>
+                <p><strong>Lorem Ipsum is simply dummy</strong> text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown
+                    printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting,
+                    remaining essentially unchanged.</p>
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-white" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
         </div>
     </div>
 </div>

@@ -31,7 +31,7 @@ input[type=text], input[type=password] {
 <div class="wrapper wrapper-content animated fadeInRight">
 <div class="col-lg-2"></div>
     <div class="col-lg-8">
-    <form action="update-user.php" method="POST">
+    <form action="profile-update-user.php" method="POST">
         <?php
             while($Result_profile = mysqli_fetch_array($Result_profiles)){
         ?>

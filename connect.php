@@ -2,7 +2,7 @@
 $servername = "localhost";
 $username = "root";
 $password = "";
-$dbname = "nattadcz_db";
+$dbname = "reserve_classroom";
 
 
 // $servername = "localhost";
