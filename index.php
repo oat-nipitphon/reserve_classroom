@@ -60,13 +60,14 @@
             </div>
         </div>
     </div>
+
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
     
     
     <!-- Mainly scripts -->
     <script src="js/jquery-3.1.1.min.js"></script>
 
-    <script type="text/javascript">
+<script type="text/javascript">
 
         function btnLogin(button){
             var username = $('#username').val();
@@ -108,6 +109,17 @@
                 }
             });
         }
+
+    //     var tableReportUser = $('#tablereportuser').DataTable({
+    //     pageLength: 2,
+    //     responsive: true,
+    //     autoWidth: true,
+    //     searching: true,
+    //     "bInfo": false,
+    //     ordering: true,
+    //     "bLengthChange": false,
+    //     processing: true
+    // });
 
     //     var tableReportUser = $('#tablereportuser').DataTable({
     //     pageLength: 3,
@@ -237,5 +249,6 @@
     //     $('input[type=checkbox]').prop('checked', false);
     //     $('#goodModal').modal('hide');
     // });
+</script>
 </body>
 </html>

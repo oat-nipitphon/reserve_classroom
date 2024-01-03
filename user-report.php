@@ -16,12 +16,8 @@
         margin-left: 5px;
         size: 13px;
     }
-    .font-table-title{
-        font-size: 12px;
-        text-align: center;
-    }
 </style>
-<link href="css/plugins/dataTables/datatables.min.css" rel="stylesheet">
+
 
 <div class="row">
 
@@ -36,80 +32,6 @@
     <div class="wrapper wrapper-content animated fadeInRight">
         <div class="table-responsive">
             <table class="table table-striped table-bordered table-hover" id="tablereportuser" width="100%">
-                <thead class="font-table-title">
-                    <tr>
-                        <td>รูป</td>
-                        <td>name</td>
-                        <td>เลขบัตรประชาชน</td>
-                        <td>username</td>
-                        <td>password</td>
-                        <td>level</td>
-                        <td>เบอร์โทร</td>
-                        <td>จัดการ</td>
-                    </tr>
-                </thead>
-                <tbody class="font-table-content">   
-                <?php
-                    $Sql = "SELECT * FROM table_user";
-                    $Obj = $conn->query($Sql);
-                    if($Obj->num_rows >0){
-                        while($Req = $Obj->fetch_assoc()){
-                            ?>
-                                <tr>
-                                    <td>
-                                        <?php
-                                            $imageData = $Req['image_user'];
-                                            $base64Image = base64_encode($imageData);
-                                            $imageSrc = "data:image/jpeg;base64, $base64Image";
-                                            echo $Req['image_user'];
-                                        ?>
-                                        <img src="<?php echo $imageSrc; ?>"  width="70" height="70">
-                                    </td>
-                                    <td width="25%"><?php echo $Req['full_name']; ?></td>
-                                    <td width="25%"><?php echo $Req['card_number']; ?></td>
-                                    <td><?php echo $Req['username']; ?></td>
-                                    <td><?php echo $Req['password']; ?></td>
-                                    <td><?php echo $Req['status_user']; ?></td>
-                                    <td><?php echo $Req['tel']; echo $Req['image_user']; ?></td>
-                                    <td width="25%">
-                                        <div class="col-md-12">
-                                            <div class="row">
-                                                <div class="col-md-4 text-center">
-                                                    <!-- <button class="dim btn btn-xs btn btn-primary" type="submit" onclick="location.href='profile-user.php?id=<?php echo $Req['id']; ?>'" data-toggle="modal" data-target="#exampleModal">
-                                                        <i class="fa fa-user-o"></i><label class="font-btn">view</label>
-                                                    </button> -->
-                                                    <button type="button" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#myModal5">
-                                                    <i class="fa fa-user"></i> ข้อมูล
-                                                    </button>
-                                                </div>
-                                                <div class="col-md-4 text-center">
-                                                    <button class="btn btn-warning btn-xs" type="button" 
-                                                    onclick="location.href='user-profile-edit.php?id=<?php echo $Req['id']; ?>'">
-                                                    <i class="fa fa-paste"></i> แก้ไข
-                                                    </button>
-                                                </div>
-                                                <div class="col-md-4 text-center">
-                                                    <input type="hidden" id="fullname" value="<?php echo $Req['full_name']; ?>">
-                                                    <button class="btn btn-danger btn-xs" type="button" onclick="remove(<?php echo $Req['id']; ?>)">
-                                                        <i class="fa fa-times"></i> ลบ
-                                                    </button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </td>
-                                </tr>
-                            <?php
-                        }
-                    }
-                    ?>
-                </tbody>
-            </table>
-        </div>
-    </div>
-
-    <div class="wrapper wrapper-content animated fadeInRight">
-        <div class="table-responsive">
-            <table class="table table-striped table-bordered table-hover" id="tablereportuser11" width="100%">
                 <thead class="font-table-title">
                     <tr>
                         <td>รูป</td>
@@ -174,19 +96,7 @@
 
 <script type="text/javascript">
 
-
-    var tableReportUser = $('#tablereportuser').DataTable({
-        pageLength: 2,
-        responsive: true,
-        autoWidth: true,
-        searching: true,
-        "bInfo": false,
-        ordering: true,
-        "bLengthChange": false,
-        processing: true
-    });
-
-    var tableReportUser11 = $('#tablereportuser11').DataTable({
+    var tableReportUser11 = $('#tablereportuser').DataTable({
         pageLength: 2,
         responsive: true,
         autoWidth: true,
@@ -200,25 +110,37 @@
             "type": "POST"
         },
         "columns": [
-            { "data": "image_user" },
+            { "data": "id" },
             { "data": "card_number" },
             { "data": "code_number" },
-            { "data": "title_name" },
+            { "data": "full_name" },
             { "data": "tel" },
             { "data": "birthday" },
             { "data": "username" },
             { "data": "password" },
-            { "data": "status_user" }
-            // { 
-                
-            //     "render": function(data){
-            //         html = '<button class="btn btn-warning btn-xs" type="button">แก้ไข</button>';
-            //     }
-            // }
+            { "data": "status_user" },
+            { 
+                "data": "id",
+                "render": function(data, type, full, meta){
+                    var html;
+                    
+                    html = '<span style="padding: 1px; border: 1px;"><button class="btn btn-primary btn-xs">ข้อมูล</button></span>'+
+                    '<span style="padding: 1px; border: 1px;"><button class="btn btn-warning btn-xs" onclick="userEdit(\'' + full.id + '\')">แก้ไข</button></span>'+
+                    '<span style="padding: 1px; border: 1px;"><button class="btn btn-danger btn-xs" onclick="userDelete(\'' + full.id + '\')">ลบ</button></span>';
+                    
+                    return html;
+                }
+            }
         ]
     });
+
+    function userEdit(id) {
+
+        console.log("Edit user: " + id);
+    
+    }
            
-    function remove(id){
+    function userDelete(id){
     var fullname = document.getElementById('fullname').value; 
     console.log(fullname);
     Swal.fire({

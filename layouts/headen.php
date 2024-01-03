@@ -36,6 +36,7 @@
     <link href="css/plugins/fullcalendar/fullcalendar.print.css" rel='stylesheet' media='print'>
 
     
+    <link href="css/plugins/dataTables/datatables.min.css" rel="stylesheet">
 
 </head>
 <style>
