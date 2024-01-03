@@ -109,7 +109,44 @@
             });
         }
 
+    //     var tableReportUser = $('#tablereportuser').DataTable({
+    //     pageLength: 3,
+    //     responsive: true,
+    //     autoWidth: true,
+    //     searching: true,
+    //     "bInfo": false,
+    //     ordering: true,
+    //     "bLengthChange": false,
+    //     processing: true
+    // });
 
+    // var tableReportUser11 = $('#tablereportuser11').DataTable({
+    //     pageLength: 3,
+    //     responsive: true,
+    //     autoWidth: true,
+    //     searching: true,
+    //     "bInfo": false,
+    //     ordering: true,
+    //     "bLengthChange": false,
+    //     processing: true,
+    //     "ajax": {
+    //         "url": "user-sql-select.php",
+    //         "type": "POST"
+    //     },
+    //     "columns": [
+    //         { "data": "id" },
+    //         { "data": "card_number" },
+    //         { "data": "code_number" },
+    //         { "data": "title_name" },
+    //         { "data": "full_name" },
+    //         { "data": "tel" },
+    //         { "data": "birthday" },
+    //         { "data": "username" },
+    //         { "data": "password" },
+    //         { "data": "status_user" },
+    //         { "data": "image_user" }
+    //     ]
+    // });
 
     // $(function(){
     //     $('.table').dataTable({

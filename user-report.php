@@ -21,20 +21,24 @@
         text-align: center;
     }
 </style>
+<link href="css/plugins/dataTables/datatables.min.css" rel="stylesheet">
 
 <div class="row">
-    <div class="row ibox-content animated fadeInDown">
-        <div class="col-md text-center" style="margin-top: 20px; margin-bonton: 20px;">
+
+    <div class="wrapper wrapper-content ibox-title animated fadeInDown">
+        <div class="col-md text-left" style="margin-top: 20px; margin-bonton: 20px;">
             <button class="btn btn-success" type="button" onclick="location.href='user-profile-add.php'">
                 <i class="fa fa-upload"></i><span class="bold"> เพิ่มข้อมูล</span>
             </button>
-        </div>
+        </div>     
     </div>
+
     <div class="wrapper wrapper-content animated fadeInRight">
         <div class="table-responsive">
-            <table class="table table-striped table-bordered table-hover dataTables-example" width="100%">
+            <table class="table table-striped table-bordered table-hover" id="tablereportuser" width="100%">
                 <thead class="font-table-title">
-                    <td>รูป</td>
+                    <tr>
+                        <td>รูป</td>
                         <td>name</td>
                         <td>เลขบัตรประชาชน</td>
                         <td>username</td>
@@ -59,7 +63,7 @@
                                             $imageSrc = "data:image/jpeg;base64, $base64Image";
                                             echo $Req['image_user'];
                                         ?>
-                                        <img src="<?php echo $imageSrc; ?>"  width="170" height="170">
+                                        <img src="<?php echo $imageSrc; ?>"  width="70" height="70">
                                     </td>
                                     <td width="25%"><?php echo $Req['full_name']; ?></td>
                                     <td width="25%"><?php echo $Req['card_number']; ?></td>
@@ -101,9 +105,36 @@
                 </tbody>
             </table>
         </div>
-        <div class="ibox-content text-right">
-            <button type="submit" onclick="location.href='dashboard.php'" class="btn btn-danger" name="btn_update">กลับ</button>
+    </div>
+
+    <div class="wrapper wrapper-content animated fadeInRight">
+        <div class="table-responsive">
+            <table class="table table-striped table-bordered table-hover" id="tablereportuser11" width="100%">
+                <thead class="font-table-title">
+                    <tr>
+                        <td>รูป</td>
+                        <td>เลขบัตรประชาชน</td>
+                        <td>รหัสประจำตัว</td>
+                        <td>ชื่อ-นามสกุล</td>
+                        <td>เบอร์โทร</td>
+                        <td>วันเดือนปี</td>
+                        <td>ชื่อผู้ใช้</td>
+                        <td>รหัสผ่าน</td>
+                        <td>สถานะ</td>
+                        <td>จัดการ</td>
+                    </tr>
+                </thead>
+                <tbody class="font-table-content">  
+
+                </tbody>
+            </table>
         </div>
+    </div>
+
+    <div class="col-md text-right" style="margin-top: 15px; margin-right: 20px;">
+        <button type="submit" onclick="location.href='dashboard.php'" class="btn btn-danger" name="btn_update">
+            กลับ
+        </button>
     </div>
 </div>
 
@@ -137,20 +168,54 @@
 
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
 <script src="js/jquery-3.1.1.min.js"></script>
-<script src="/js/plugins/dataTables/datatables.min.js"></script>
+<script src="js/plugins/dataTables/datatables.min.js"></script>
+
+
+
 <script type="text/javascript">
 
-    $(function(){
-        $('.table').dataTable({
-            pageLength: 3,
-            responsive: true,
-            autoWidth: true,
-            searching: true,
-            "bInfo": false,
-            ordering: true,
-            "bLengthChange": false,
-            processing: true,
-        });
+
+    var tableReportUser = $('#tablereportuser').DataTable({
+        pageLength: 2,
+        responsive: true,
+        autoWidth: true,
+        searching: true,
+        "bInfo": false,
+        ordering: true,
+        "bLengthChange": false,
+        processing: true
+    });
+
+    var tableReportUser11 = $('#tablereportuser11').DataTable({
+        pageLength: 2,
+        responsive: true,
+        autoWidth: true,
+        searching: true,
+        "bInfo": false,
+        ordering: true,
+        "bLengthChange": false,
+        processing: true,
+        "ajax": {
+            "url": "user-sql-select.php",
+            "type": "POST"
+        },
+        "columns": [
+            { "data": "image_user" },
+            { "data": "card_number" },
+            { "data": "code_number" },
+            { "data": "title_name" },
+            { "data": "tel" },
+            { "data": "birthday" },
+            { "data": "username" },
+            { "data": "password" },
+            { "data": "status_user" }
+            // { 
+                
+            //     "render": function(data){
+            //         html = '<button class="btn btn-warning btn-xs" type="button">แก้ไข</button>';
+            //     }
+            // }
+        ]
     });
            
     function remove(id){
