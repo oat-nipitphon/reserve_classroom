@@ -14,18 +14,19 @@ if (!isset($_SESSION['username'])) {
 ?>
 <style>
     .ibox-content-menu {
-        display: block;
-        font-size: 16px;
-        border: 5px;
-        margin-top: 50px;
-        width: 300px;
-        height: 150px;
         position: relative;
-        /* margin-left: 60px; */
-        background: white;
         border-radius: 3em;
         padding: 3em;
-
+    }
+    .font-ibox-menu{
+      font-size: 16px;
+      margin-top: 10px;
+    }
+    .tags-ibox-menu{
+      margin-top: 20px;
+    }
+    .stats-ibox-menu{
+      margin-top: 20px;
     }
 </style>
 
@@ -62,29 +63,23 @@ if (!isset($_SESSION['username'])) {
             <?php 
           if($status_user == "admin" || $status_user == "teacher"){
             ?>
-            <div class="ibox-content col-md-4">
+
+            <!-- Menu 1 User Report  -->
+            <div class="ibox-content-menu col-md-4">
                 <a href="user-report.php" class="btn-link">
-                    <h2>
+                    <label class="font-ibox-menu">
                         บริหารจัดการผู้ใช้
-                    </h2>
+                    </label>
                 </a>
-                <div class="small m-b-xs">
-                    <strong>Anthony Pits</strong> <span class="text-muted"><i class="fa fa-clock-o"></i> 04 Jan
-                        2015</span>
-                </div>
-                <p>
-                    The languages only differ in their grammar, their pronunciation and their most common words.
-                    Everyone realizes why a new common language would be desirable: one could refuse to pay expensive
-                    translators.
-                </p>
                 <div class="row">
                     <div class="col-md-6">
+                      <label class="tags-ibox-menu">
                         <h5>Tags:</h5>
-                        <button class="btn btn-primary btn-xs" type="button">Publishing</button>
-                        <button class="btn btn-white btn-xs" type="button">Model</button>
+                        <button class="btn btn-primary btn-md" onclick="location.href='user-report.php'" type="button" style="margin-top: 5px;">เลือก</button>
+                      </label>
                     </div>
                     <div class="col-md-6">
-                        <div class="small text-right">
+                        <div class="stats-ibox-menu small text-right">
                             <h5>Stats:</h5>
                             <div> <i class="fa fa-comments-o"> </i> 54 comments </div>
                             <i class="fa fa-eye"> </i> 52 views
@@ -92,29 +87,23 @@ if (!isset($_SESSION['username'])) {
                     </div>
                 </div>
             </div>
-            <div class="ibox-content col-md-4">
+
+            <!-- Menu 2 Building Control -->
+            <div class="ibox-content-menu col-md-4">
                 <a href="building-control.php" class="btn-link">
-                    <h2>
+                    <label class="font-ibox-menu">
                         บริหารจัดการอาคารเรียน
-                    </h2>
+                    </label>
                 </a>
-                <div class="small m-b-xs">
-                    <strong>Anthony Pits</strong> <span class="text-muted"><i class="fa fa-clock-o"></i> 04 Jan
-                        2015</span>
-                </div>
-                <p>
-                    The languages only differ in their grammar, their pronunciation and their most common words.
-                    Everyone realizes why a new common language would be desirable: one could refuse to pay expensive
-                    translators.
-                </p>
                 <div class="row">
                     <div class="col-md-6">
+                      <label class="tags-ibox-menu">
                         <h5>Tags:</h5>
-                        <button class="btn btn-primary btn-xs" type="button">Publishing</button>
-                        <button class="btn btn-white btn-xs" type="button">Model</button>
+                        <button class="btn btn-primary btn-md" onclick="location.href='building-control.php'" type="button" style="margin-top: 5px;">เลือก</button>
+                      </label>
                     </div>
                     <div class="col-md-6">
-                        <div class="small text-right">
+                        <div class="stats-ibox-menu small text-right">
                             <h5>Stats:</h5>
                             <div> <i class="fa fa-comments-o"> </i> 54 comments </div>
                             <i class="fa fa-eye"> </i> 52 views
@@ -122,29 +111,23 @@ if (!isset($_SESSION['username'])) {
                     </div>
                 </div>
             </div>
-            <div class="ibox-content col-md-4">
+
+            <!-- Menu 3 Room Control -->
+            <div class="ibox-content-menu col-md-4">
                 <a href="room-control.php" class="btn-link">
-                    <h2>
+                    <label class="font-ibox-menu">
                         บริหารจัดการห้องเรียน
-                    </h2>
+                    </label>
                 </a>
-                <div class="small m-b-xs">
-                    <strong>Anthony Pits</strong> <span class="text-muted"><i class="fa fa-clock-o"></i> 04 Jan
-                        2015</span>
-                </div>
-                <p>
-                    The languages only differ in their grammar, their pronunciation and their most common words.
-                    Everyone realizes why a new common language would be desirable: one could refuse to pay expensive
-                    translators.
-                </p>
                 <div class="row">
                     <div class="col-md-6">
+                      <label class="tags-ibox-menu">
                         <h5>Tags:</h5>
-                        <button class="btn btn-primary btn-xs" type="button">Publishing</button>
-                        <button class="btn btn-white btn-xs" type="button">Model</button>
+                        <button class="btn btn-primary btn-md" onclick="location.href='room-control.php'" type="button" style="margin-top: 5px;">เลือก</button>
+                      </label>
                     </div>
                     <div class="col-md-6">
-                        <div class="small text-right">
+                        <div class="stats-ibox-menu small text-right">
                             <h5>Stats:</h5>
                             <div> <i class="fa fa-comments-o"> </i> 54 comments </div>
                             <i class="fa fa-eye"> </i> 52 views
@@ -152,34 +135,30 @@ if (!isset($_SESSION['username'])) {
                     </div>
                 </div>
             </div>
+
+
         </div>
         <?php
             }
         ?>
         <div class="row">
-            <div class="ibox-content col-md-4">
+
+            <!-- Menu 4 Room Select -->
+            <div class="ibox-content-menu col-md-4">
                 <a href="room-select.php" class="btn-link">
-                    <h2>
+                    <label class="font-ibox-menu">
                         บริหารจัดการ จอง - คืน
-                    </h2>
+                    </label>
                 </a>
-                <div class="small m-b-xs">
-                    <strong>Anthony Pits</strong> <span class="text-muted"><i class="fa fa-clock-o"></i> 04 Jan
-                        2015</span>
-                </div>
-                <p>
-                    The languages only differ in their grammar, their pronunciation and their most common words.
-                    Everyone realizes why a new common language would be desirable: one could refuse to pay expensive
-                    translators.
-                </p>
                 <div class="row">
                     <div class="col-md-6">
+                      <label class="tags-ibox-menu">
                         <h5>Tags:</h5>
-                        <button class="btn btn-primary btn-xs" type="button">Publishing</button>
-                        <button class="btn btn-white btn-xs" type="button">Model</button>
+                        <button class="btn btn-primary btn-md" onclick="location.href='room-select.php'" type="button" style="margin-top: 5px;">เลือก</button>
+                      </label>
                     </div>
                     <div class="col-md-6">
-                        <div class="small text-right">
+                        <div class="stats-ibox-menu small text-right">
                             <h5>Stats:</h5>
                             <div> <i class="fa fa-comments-o"> </i> 54 comments </div>
                             <i class="fa fa-eye"> </i> 52 views
@@ -187,29 +166,23 @@ if (!isset($_SESSION['username'])) {
                     </div>
                 </div>
             </div>
-            <div class="ibox-content col-md-4">
-                <a href="room-report" class="btn-link">
-                    <h2>
+
+            <!-- Menu 5 Room Report -->
+            <div class="ibox-content-menu col-md-4">
+                <a href="room-report.php" class="btn-link">
+                    <label class="font-ibox-menu">
                         ระบบรายงานการ จอง - คืน
-                    </h2>
+                    </label>
                 </a>
-                <div class="small m-b-xs">
-                    <strong>Anthony Pits</strong> <span class="text-muted"><i class="fa fa-clock-o"></i> 04 Jan
-                        2015</span>
-                </div>
-                <p>
-                    The languages only differ in their grammar, their pronunciation and their most common words.
-                    Everyone realizes why a new common language would be desirable: one could refuse to pay expensive
-                    translators.
-                </p>
                 <div class="row">
                     <div class="col-md-6">
+                      <label class="tags-ibox-menu">
                         <h5>Tags:</h5>
-                        <button class="btn btn-primary btn-xs" type="button">Publishing</button>
-                        <button class="btn btn-white btn-xs" type="button">Model</button>
+                        <button class="btn btn-primary btn-md" onclick="location.href='room-report.php'" type="button" style="margin-top: 5px;">เลือก</button>
+                      </label>
                     </div>
                     <div class="col-md-6">
-                        <div class="small text-right">
+                        <div class="stats-ibox-menu small text-right">
                             <h5>Stats:</h5>
                             <div> <i class="fa fa-comments-o"> </i> 54 comments </div>
                             <i class="fa fa-eye"> </i> 52 views
@@ -217,29 +190,23 @@ if (!isset($_SESSION['username'])) {
                     </div>
                 </div>
             </div>
-            <div class="ibox-content col-md-4">
+
+            <!-- Menu 6 Comment Room -->
+            <div class="ibox-content-menu col-md-4">
                 <a href="comment-rooms.php" class="btn-link">
-                    <h2>
+                    <label class="font-ibox-menu">
                         คอมเม้นห้อง
-                    </h2>
+                    </label>
                 </a>
-                <div class="small m-b-xs">
-                    <strong>Anthony Pits</strong> <span class="text-muted"><i class="fa fa-clock-o"></i> 04 Jan
-                        2015</span>
-                </div>
-                <p>
-                    The languages only differ in their grammar, their pronunciation and their most common words.
-                    Everyone realizes why a new common language would be desirable: one could refuse to pay expensive
-                    translators.
-                </p>
                 <div class="row">
                     <div class="col-md-6">
+                      <label class="tags-ibox-menu">
                         <h5>Tags:</h5>
-                        <button class="btn btn-primary btn-xs" type="button">Publishing</button>
-                        <button class="btn btn-white btn-xs" type="button">Model</button>
+                        <button class="btn btn-primary btn-md" onclick="location.href='comment-rooms.php'" type="button" style="margin-top: 5px;">เลือก</button>
+                      </label>
                     </div>
                     <div class="col-md-6">
-                        <div class="small text-right">
+                        <div class="stats-ibox-menu small text-right">
                             <h5>Stats:</h5>
                             <div> <i class="fa fa-comments-o"> </i> 54 comments </div>
                             <i class="fa fa-eye"> </i> 52 views
@@ -247,6 +214,8 @@ if (!isset($_SESSION['username'])) {
                     </div>
                 </div>
             </div>
+
+
         </div>
     </div>
 
