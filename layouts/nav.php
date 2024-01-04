@@ -155,7 +155,7 @@
 
 
             <li>
-                <a href="logout.php">
+                <a href="logout-config.php">
                     <i class="fa fa-sign-out"></i> ออกจากระบบ
                 </a>
             </li>

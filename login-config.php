@@ -9,21 +9,27 @@
 		$password = $_POST["password"];
 
 		$sql = "SELECT * FROM `table_user` WHERE `username` = '$username' AND `password`= '$password'";
-		echo $sql;
 		$obj = $conn->query($sql);
 		$req = $obj->fetch_assoc();
 	
 		// Check if the provided credentials are valid
 		if ($req != null) {
+
+			
+
 			// Set session variables
 			$_SESSION["id"] = $req['id'];
 			$_SESSION["username"] = $req['username'];
 			$_SESSION["status_user"] = $req['status_user'];
-	
-			// Redirect to a logged-in page
-			header("Location: dashboard.php");
-			exit();
+
+			// $response = array('success' => true, 'message' => 'Invalid username or password');
+			$response = 1;
+			echo json_encode($response);
+
+			// header("Location: dashboard.php");
 		} else {
-			$error_message = "Invalid username or password. Please try again.";
+			// $response = array('success' => false, 'message' => 'Invalid username or password');
+			$response = 0;
+			echo json_encode($response);
 		}
 	}

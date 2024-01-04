@@ -1,7 +1,7 @@
 <?php
 session_start();
-include 'connect.php';
-include 'layouts/headen.php';
+
+require_once("connect.php");
 $id_user = $_SESSION['id'];
 $username = $_SESSION['username'];
 $status_user = $_SESSION['status_user'];
@@ -10,6 +10,8 @@ $status_user = $_SESSION['status_user'];
 if (!isset($_SESSION['username'])) {
     header('Location: index.php');
     exit();
+}else{
+    include('layouts/headen.php');
 }
 ?>
 <style>

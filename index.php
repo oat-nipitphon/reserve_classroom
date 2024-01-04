@@ -80,32 +80,40 @@
                 data: {
                     username: username,
                     password: password,
+                    "_token": "{{ csrf_token() }}",
                 },
+                
                 success: function(response){
-                    console.log('Login Connet');
-                    Swal.fire({
-                        title: "เข้าสู่ระบบสำเร็จ",
-                        text: "ยินดีต้อนรับ "+username,
-                        icon: "success"
-                    });
-                    setTimeout(function(){
-                        swal.close();
-                        location.replace('dashboard.php');
-                    },1500);
-                    
+                    console.log(response);
+
+                    if(response == 1){
+                        console.log('OK')
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'Login Success',
+                            text: 'Welcome' + username + '!',
+                        });
+                        setTimeout(function(){
+                            swal.close();
+                            location.replace('dashboard.php');
+                        },1500);
+                    }else{
+                        console.log('Error')
+                        Swal.fire({
+                            icon: 'error',
+                            title: "เข้าสู่ระบบไม่สำเร็จ",
+                            text: "ตรวจสอบชื่อผู้ใช้ และรหัสผ่านของท่านอีกครั้ง !!",
+                        });
+                        setTimeout(function(){
+                            swal.close();
+                            document.getElementById('username').reset;
+                            document.getElementById('password').reset;
+                            location.reload();
+                        },1500);
+                    }
                 },
                 error: function(error){
-                    console.log('Login Error');
-                    Swal.fire({
-                        title: "เข้าสู่ระบบไม่สำเร็จ",
-                        text: "ตรวจสอบชื่อผู้ใช้ และรหัสผ่านของท่านอีกครั้ง !!",
-                        icon: ""
-                    });
-                    setTimeout(function(){
-                        swal.close();
-                        document.getElementById('username').reset;
-                        document.getElementById('password').reset;
-                    },1500);
+                    console.log(error);
                 }
             });
         }
