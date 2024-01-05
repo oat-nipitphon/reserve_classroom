@@ -67,31 +67,31 @@
     <!-- Mainly scripts -->
     <script src="js/jquery-3.1.1.min.js"></script>
 
-<script type="text/javascript">
+    <script type="text/javascript">
 
         function btnLogin(button){
             var username = $('#username').val();
             var password = $('#password').val();
-            console.log(username,password);
-
             $.ajax({
                 type: 'post',
                 url: 'login-config.php',
                 data: {
                     username: username,
-                    password: password,
-                    "_token": "{{ csrf_token() }}",
+                    password: password
                 },
-                
-                success: function(response){
-                    console.log(response);
-
-                    if(response == 1){
+                success: function(response, success, message){
+                    console.log(message.status);
+                    if(message.status == '200'){
+                        console.log('connent');
+                    }else{
+                        console.log('error');
+                    }
+                    if(message.status == 200){
                         console.log('OK')
                         Swal.fire({
                             icon: 'success',
                             title: 'Login Success',
-                            text: 'Welcome' + username + '!',
+                            text: 'Welcome   ' + username + '!',
                         });
                         setTimeout(function(){
                             swal.close();
@@ -101,14 +101,14 @@
                         console.log('Error')
                         Swal.fire({
                             icon: 'error',
-                            title: "เข้าสู่ระบบไม่สำเร็จ",
-                            text: "ตรวจสอบชื่อผู้ใช้ และรหัสผ่านของท่านอีกครั้ง !!",
+                            title: "Login Error",
+                            text: 'Invalid username or password',
                         });
                         setTimeout(function(){
+                            document.getElementById('username').value = '';
+                            document.getElementById('password').value = '';
                             swal.close();
-                            document.getElementById('username').reset;
-                            document.getElementById('password').reset;
-                            location.reload();
+                            // location.reload();
                         },1500);
                     }
                 },

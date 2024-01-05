@@ -1,19 +1,18 @@
 <?php
-session_start();
 
-require_once("connect.php");
-$id_user = $_SESSION['id'];
-$username = $_SESSION['username'];
-$status_user = $_SESSION['status_user'];
+    session_start();
 
-// Check if the user is logged in
-if (!isset($_SESSION['username'])) {
-    header('Location: index.php');
-    exit();
-}else{
-    include('layouts/headen.php');
-}
+    require_once("connect.php");
+    $id_user = $_SESSION['id'];
+    $username = $_SESSION['username'];
+    $status_user = $_SESSION['status_user'];
+    if (!isset($_SESSION['username'])) {
+        header('Location: index.php');
+        exit();
+    }
+    include('D:/xampp/htdocs/reserve_classroom/layouts/headen.php');
 ?>
+
 <style>
     .ibox-content-menu {
         position: relative;
@@ -31,9 +30,39 @@ if (!isset($_SESSION['username'])) {
       margin-top: 20px;
     }
 </style>
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-lg-10">
+        <h2>Dashboard</h2>
+        <ol class="breadcrumb">
+            <li>
+                <a href="index.html">Home</a>
+            </li>
+            <li>
+                <a>Graphs</a>
+            </li>
+            <li class="active">
+                <strong>Morris.js Charts</strong>
+            </li>
+        </ol>
+    </div>
+    <div class="col-lg-2">
+
+    </div>
+    <div class="ibox float-e-margins">
+        <div class="ibox-content">
+
+        </div>
+    </div>
+</div>
+
+<div class="col-lg-12">
+    <div class="ibox-title">
+    <!-- <strong class="font-bold">David Williams</strong> -->
+    <strong class="font-bold">Dashboard</strong>
+    </div>
+</div>
 
 <div class="wrapper wrapper-content animated fadeInRight">
-
     <div class="row wrapper border-bottom white-bg page-heading">
         <div class="col-md-12">
             <div class="row">

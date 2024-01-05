@@ -20,73 +20,79 @@ input[type=text], input[type=password] {
     margin-top: 30px;
     margin-left: auto;
     margin-right: auto;
-}
+}   
 </style>
 
 <?php
-    $id = $_GET['id'];
+    $id = $_POST['id'];
     $Sql_profile = "SELECT * FROM table_user WHERE id='$id'";
     $Result_profiles = mysqli_query($conn, $Sql_profile);
 ?>
-<div class="wrapper wrapper-content animated fadeInRight">
-<div class="col-lg-2"></div>
-    <div class="col-lg-8" id="formupdate">
-    <!-- <form action="profile-update-user.php" method="POST"> -->
-        <?php
-            while($Result_profile = mysqli_fetch_array($Result_profiles)){
-        ?>
-        <input type="hidden" name="iduser" id="iduser" value="<?php echo $Result_profile["id"]; ?>">
-        <input type="hidden" name="statususer" id="statususer" value="<?php echo $Result_profile["status_user"]; ?>">
-            <div class="row">
-                <div class="form-group">
-                    <lable class="col-sm-2 control-label">เลขบัตรประชาชน</lable>
-                    <div class="col-sm-10">
-                        <input class="form-control" type="text" name="cardnumber" id="cardnumber" value="<?php echo $Result_profile["card_number"];?>">
+<div class="row">
+    <div class="container">
+        <div class="wrapper wrapper-content animated fadeInRight">
+            <div class="ibox-title">
+                แก้ไขข้อมูล
+            </div>
+            <div class="ibox-content">
+                <div class="col-lg-10" id="formupdate">
+                    <?php
+                        while($Result_profile = mysqli_fetch_array($Result_profiles)){
+                    ?>
+                    <input type="hidden" name="iduser" id="iduser" value="<?php echo $Result_profile["id"]; ?>">
+                    <input type="hidden" name="statususer" id="statususer" value="<?php echo $Result_profile["status_user"]; ?>">
+                        <div class="row">
+                            <div class="form-group">
+                                <lable class="col-sm-2 control-label">เลขบัตรประชาชน</lable>
+                                <div class="col-sm-10">
+                                    <input class="form-control" type="text" name="cardnumber" id="cardnumber" value="<?php echo $Result_profile["card_number"];?>">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <lable class="col-sm-2 control-label">รหัสนักศึกษา</lable>
+                                <div class="col-sm-10">
+                                    <input class="form-control" type="text" name="codenumber" id="codenumber" value="<?php echo $Result_profile["code_number"];?>">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <lable class="col-sm-2 control-label">ชื่อ - นามสกุล</lable>
+                                <div class="col-sm-10">
+                                    <input class="form-control" type="text" name="fullName" id="fullname" value="<?php echo $Result_profile["full_name"];?>">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <lable class="col-sm-2 control-label">ชื่อผู้ใช้</lable>
+                                <div class="col-sm-10">
+                                    <input class="form-control" type="text" name="username" id="username" value="<?php echo $Result_profile["username"];?>">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <lable class="col-sm-2 control-label">รหัสผ่าน</lable>
+                                <div class="col-sm-10">
+                                    <input class="form-control" type="text" name="password" id="password" value="<?php echo $Result_profile["password"];?>">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <lable class="col-sm-2 control-label">เบอร์โทรศัพท์</lable>
+                                <div class="col-sm-10">
+                                    <input class="form-control" type="text" name="tel" id="tel" value="<?php echo $Result_profile["tel"];?>">
+                                </div>
+                            </div>
+                        </div>
+                        <?php
+                            }
+                        ?>
+                    <div class="col-lg-12" style="text-align:center; margin-top: 30px;">
+                        <button id="btnformupdate" onclick="updateProfileUser()" type="button" class="btn btn-success" name="btnformupdate">แก้ไขข้อมูล</button>
                     </div>
-                </div>
-                <div class="form-group">
-                    <lable class="col-sm-2 control-label">รหัสนักศึกษา</lable>
-                    <div class="col-sm-10">
-                        <input class="form-control" type="text" name="codenumber" id="codenumber" value="<?php echo $Result_profile["code_number"];?>">
-                    </div>
-                </div>
-                <div class="form-group">
-                    <lable class="col-sm-2 control-label">ชื่อ - นามสกุล</lable>
-                    <div class="col-sm-10">
-                        <input class="form-control" type="text" name="fullName" id="fullname" value="<?php echo $Result_profile["full_name"];?>">
-                    </div>
-                </div>
-                <div class="form-group">
-                    <lable class="col-sm-2 control-label">ชื่อผู้ใช้</lable>
-                    <div class="col-sm-10">
-                        <input class="form-control" type="text" name="username" id="username" value="<?php echo $Result_profile["username"];?>">
-                    </div>
-                </div>
-                <div class="form-group">
-                    <lable class="col-sm-2 control-label">รหัสผ่าน</lable>
-                    <div class="col-sm-10">
-                        <input class="form-control" type="text" name="password" id="password" value="<?php echo $Result_profile["password"];?>">
-                    </div>
-                </div>
-                <div class="form-group">
-                    <lable class="col-sm-2 control-label">เบอร์โทรศัพท์</lable>
-                    <div class="col-sm-10">
-                        <input class="form-control" type="text" name="tel" id="tel" value="<?php echo $Result_profile["tel"];?>">
+                    <!-- </form> -->
+                    <div class="col-lg-12" style="text-align:right; margin-top: 30px;">
+                        <button type="submit" onclick="location.href='user-report.php'" class="btn btn-danger" name="btn_update">กลับ</button>
                     </div>
                 </div>
             </div>
-            <?php
-                }
-            ?>
-        <div class="col-lg-12" style="text-align:center; margin-top: 30px;">
-            <button id="btnformupdate" onclick="updateProfileUser()" type="button" class="btn btn-success" name="btnformupdate">แก้ไขข้อมูล</button>
-        </div>
-        <!-- </form> -->
-        <div class="col-lg-12" style="text-align:right; margin-top: 30px;">
-            <button type="submit" onclick="location.href='main.php'" class="btn btn-danger" name="btn_update">กลับ</button>
         </div>
     </div>
-    <div class="col-lg-2"></div>
 </div>
 
 

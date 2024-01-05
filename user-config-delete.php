@@ -11,8 +11,13 @@
     $Obj = mysqli_query($conn, $Sql);
     if($Obj != null ){
         echo "OK".$Sql;
+        $response = array(['success' => true, 'message' => 'Delete Successfullry.']);
     }
     else{
         echo "Error".$Sql;
+        $response = array(['success' => false, 'message' => 'Delete Error Success.']);
     }
+
+    echo json_encode($response);
+
 ?>

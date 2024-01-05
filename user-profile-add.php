@@ -29,85 +29,96 @@ $conn->close();
         padding-left: 10px;
     }
 </style>
-<div id="wrapper">
-  <!-- <form action="insert-user.php" method="POST"> -->
-    <div class="col-lg-10">
-        <div class="form-group">
-            <label for="">เลขบัตรประชาชน<font>*13 หลัก</font></label>
-            <input type="text" id="test_txt" class="form-control" name="cardnumber" id="cardnumber" placeholder="xxxxx-xxxxx-xx-x"
-                maxlength="13" onblur="checknumber();">
-        </div>
-        <div class="form-group">
-            <label for="">สถานะภาพ</label>
-            <select class="form-control" name="statususer" id="statususer">
-                <option value="null">เลือกสถานะ</option>
-                <option value="teacher">อาจารย์</option>
-                <option value="student">นักศึกษา</option>
-                <option value="developer">Developer</option>
-            </select>
-        </div>
-        <div class="form-group">
-            <label for="">รหัสนักศึกษา</label>
-            <input type="text" id="test_txt1" class="form-control" id="codenumber" name="codenumber" placeholder="xxxxxxxxx-x"
-                maxlength="13" onblur="checknumber1();">
-            <label for="">
-                <font color="red">*อาจารย์ไม่ต้องใส่รหัสนักศึกษา</font>
-            </label>
-        </div>
-        <div class="form-group">
-          <label for="">คำนำหน้า</label>
-          <select class="form-control" name="titlename" id="titlename">
-            <option value="mr">นาย</option>
-            <option value="miss">นางสาว</option>
-            <option value="mis">นาง</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label for="">วันเดือนปัเกิด</label>
-          <input type="date" id="brithday" name="brithday" class="form-control">
-        </div>
-        <div class="form-group">
-            <label for="">ชื่อ - นามสกุล</label>
-            <input type="text" class="form-control" name="fullname" id="fullname" placeholder="xxxxxx xxxxx">
-        </div>
-        <div class="form-group">
-            <label for="">เบอร์โทรศัพท์</label>
-            <input type="text" id="test_txt2" class="form-control" name="tel" id="tel" placeholder="xxx-xxx-xxxx"
-                maxlength="10" onblur="checknumber2();">
-        </div>
-        <div class="form-group">
-            <label for="">ชื่อผู้ใช้</label>
-            <input type="text" class="form-control" name="username" id="username" placeholder="xxxxxxxx">
-        </div>
-        <div class="form-group">
-            <label for="">รหัสผ่าน</label>
-            <input type="password" class="form-control" name="password" id="password" placeholder="xxxxxxxx">
-        </div>
-        <div class="form-group">
-            <label for="">ยืนยันรหัสผ่าน</label>
-            <input type="password" class="form-control" name="configpassword" id="configpassword" placeholder="xxxxxxxx">
-        </div>
-        <div class="form-group">
-          <label for="">รูปประจำตัว</label>
-          <!-- <input type="file" class="form-control" name="imguser" id="imguser"> -->
-          <div class="fallback">
-              <input name="file" type="file" name="imguser" id="imguser" multiple />
-          </div>
-        </div>
-        <div class="row text-center">
-          <button type="button" class="btn btn-success btn-md" onclick="btnInsertUser()">สมัครสมาชิก</button>
+
+<div class="row">
+    <div class="wrapper wrapper-content animated fadeInDown">
+        <div class="col-lg-12">
+            <div class="form-group">
+                <label for="">เลขบัตรประชาชน<font>*13 หลัก</font></label>
+                <input type="text" id="test_txt" class="form-control" name="cardnumber" id="cardnumber"
+                    placeholder="xxxxx-xxxxx-xx-x" maxlength="13" onblur="checknumber();">
+            </div>
+            <div class="form-group">
+                <label for="">สถานะภาพ</label>
+                <select class="form-control" name="statususer" id="statususer">
+                    <option value="null">เลือกสถานะ</option>
+                    <option value="teacher">อาจารย์</option>
+                    <option value="student">นักศึกษา</option>
+                    <option value="developer">Developer</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="">รหัสนักศึกษา</label>
+                <input type="text" id="test_txt1" class="form-control" id="codenumber" name="codenumber"
+                    placeholder="xxxxxxxxx-x" maxlength="13" onblur="checknumber1();">
+                <label for="">
+                    <font color="red">*อาจารย์ไม่ต้องใส่รหัสนักศึกษา</font>
+                </label>
+            </div>
+            <div class="form-group">
+                <label for="">คำนำหน้า</label>
+                <select class="form-control" name="titlename" id="titlename">
+                    <option value="mr">นาย</option>
+                    <option value="miss">นางสาว</option>
+                    <option value="mis">นาง</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="">วันเดือนปัเกิด</label>
+                <input type="date" id="brithday" name="brithday" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="">ชื่อ - นามสกุล</label>
+                <input type="text" class="form-control" name="fullname" id="fullname" placeholder="xxxxxx xxxxx">
+            </div>
+            <div class="form-group">
+                <label for="">เบอร์โทรศัพท์</label>
+                <input type="text" id="test_txt2" class="form-control" name="tel" id="tel"
+                    placeholder="xxx-xxx-xxxx" maxlength="10" onblur="checknumber2();">
+            </div>
+            <div class="form-group">
+                <label for="">ชื่อผู้ใช้</label>
+                <input type="text" class="form-control" name="username" id="username" placeholder="xxxxxxxx">
+            </div>
+            <div class="form-group">
+                <label for="">รหัสผ่าน</label>
+                <input type="password" class="form-control" name="password" id="password" placeholder="xxxxxxxx">
+            </div>
+            <div class="form-group">
+                <label for="">ยืนยันรหัสผ่าน</label>
+                <input type="password" class="form-control" name="configpassword" id="configpassword"
+                    placeholder="xxxxxxxx">
+            </div>
+            <div class="form-group">
+                <label for="">รูปประจำตัว</label>
+                <!-- <input type="file" class="form-control" name="imguser" id="imguser"> -->
+                <div class="fallback">
+                    <input name="file" type="file" name="imguser" id="imguser" multiple />
+                </div>
+            </div>
+            <div class="row text-center">
+                <button type="button" class="btn btn-success btn-md" onclick="btnInsertUser()">สมัครสมาชิก</button>
+            </div>
         </div>
     </div>
-  <!-- </form> -->
+</div>
+
+<div class="col-lg-12">
+    <div id="animated fadeInDown">
+        <div class="ibox-title">
+
+        </div>
+        <div class="ibox-content">
+
+        </div>
+    </div>
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
 <script src="js/jquery-3.1.1.min.js"></script>
 <script src="js/plugins/dataTables/datatables.min.js"></script>
 <script type="text/javascript">
-
-
-    function btnInsertUser(button){
+    function btnInsertUser(button) {
         // var idUser = $('#iduser').val();
         var cardNumber = $('#cardnumber').val();
         var codeNumber = $('#codenumber').val();
@@ -138,7 +149,7 @@ $conn->close();
                 BrithDay: BrithDay,
                 imgUser: imgUser,
             },
-            success: function(response){
+            success: function(response) {
                 console.log(response);
                 Swal.fire({
                     title: 'เพิ่มข้อมูล',
@@ -147,11 +158,11 @@ $conn->close();
                     width: '550px',
                     confirmButtonColor: '#3085d6',
                 });
-                setTimeout(function(){
-                swal.close();
-                // window.location.reload();
-                location.replace('user-report.php');
-                },4000)
+                setTimeout(function() {
+                    swal.close();
+                    // window.location.reload();
+                    location.replace('user-report.php');
+                }, 4000)
             },
             error: function(error) {
                 console.log(error);
@@ -182,8 +193,7 @@ $conn->close();
             document.getElementById('test_txt2').value = "";
         }
     }
-
 </script>
 <?php
-include('layouts/footer.php');
+include 'layouts/footer.php';
 ?>

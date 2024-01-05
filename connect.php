@@ -15,11 +15,11 @@ $conn = new mysqli($servername, $username, $password, $dbname);
 
 // Check connection
 if ($conn != null) {
-  // $Sql = "SELECT * FROM `login`";
+  // $Sql = "SELECT * FROM `table_user`";
   // $obj = $conn->query($Sql);
   // if($obj->num_rows > 0){
   //   while($req = $obj->fetch_assoc()){
-  //     echo $req['name'].'<br>';
+  //     echo $req['full_name'].'<br>';
   //   }
   // }
   
