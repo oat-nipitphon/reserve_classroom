@@ -90,26 +90,26 @@
                         console.log('OK')
                         Swal.fire({
                             icon: 'success',
-                            title: 'Login Success',
+                            title: 'Login Successfullry.',
                             text: 'Welcome   ' + username + '!',
                         });
                         setTimeout(function(){
                             swal.close();
                             location.replace('dashboard.php');
-                        },1500);
+                        },1000);
                     }else{
                         console.log('Error')
                         Swal.fire({
                             icon: 'error',
-                            title: "Login Error",
+                            title: "Login Not Successfullry",
                             text: 'Invalid username or password',
                         });
                         setTimeout(function(){
                             document.getElementById('username').value = '';
                             document.getElementById('password').value = '';
                             swal.close();
-                            // location.reload();
-                        },1500);
+                            location.reload();
+                        },1000);
                     }
                 },
                 error: function(error){

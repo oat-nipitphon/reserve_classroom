@@ -1,6 +1,5 @@
-<!-- Start Nav bar Top -->
 <div class="row border-bottom">
-    <nav class="navbar navbar-static-top" role="navigation" style="margin-bottom: 0">
+    <nav class="navbar navbar-static-top white-bg" role="navigation" style="margin-bottom: 0">
         <div class="navbar-header">
             <a class="navbar-minimalize minimalize-styl-2 btn btn-primary " href="#"><i class="fa fa-bars"></i> </a>
             <form role="search" class="navbar-form-custom" action="search_results.html">
@@ -24,10 +23,10 @@
                             <a href="profile.html" class="pull-left">
                                 <img alt="image" class="img-circle" src="img/a7.jpg">
                             </a>
-                            <div class="media-body">
+                            <div>
                                 <small class="pull-right">46h ago</small>
-                                <strong>Mike Loreipsum</strong> started following <strong>Monica Smith</strong>.
-                                <br>
+                                <strong>Mike Loreipsum</strong> started following <strong>Monica
+                                    Smith</strong>. <br>
                                 <small class="text-muted">3 days ago at 7:58 pm - 10.06.2014</small>
                             </div>
                         </div>
@@ -38,7 +37,7 @@
                             <a href="profile.html" class="pull-left">
                                 <img alt="image" class="img-circle" src="img/a4.jpg">
                             </a>
-                            <div class="media-body ">
+                            <div>
                                 <small class="pull-right text-navy">5h ago</small>
                                 <strong>Chris Johnatan Overtunk</strong> started following <strong>Monica
                                     Smith</strong>. <br>
@@ -52,7 +51,7 @@
                             <a href="profile.html" class="pull-left">
                                 <img alt="image" class="img-circle" src="img/profile.jpg">
                             </a>
-                            <div class="media-body ">
+                            <div>
                                 <small class="pull-right">23h ago</small>
                                 <strong>Monica Smith</strong> love <strong>Kim Smith</strong>. <br>
                                 <small class="text-muted">2 days ago at 2:30 am - 11.06.2014</small>
@@ -111,10 +110,8 @@
                     </li>
                 </ul>
             </li>
-
-
             <li>
-                <a href="login.html">
+                <a href="logout-config.php">
                     <i class="fa fa-sign-out"></i> Log out
                 </a>
             </li>
@@ -124,6 +121,6 @@
                 </a>
             </li>
         </ul>
+
     </nav>
 </div>
-<!-- Stop Nav bar -->
